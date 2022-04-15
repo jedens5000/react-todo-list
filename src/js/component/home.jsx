@@ -1,26 +1,19 @@
 import React from "react";
+import Header from "./Header";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
 	return (
-		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container">
+			{/* <h1>Test Home.jsx</h1> */}
+			<Header />
 		</div>
 	);
 };
 
 export default Home;
+
+//ADD TO NOTES/////////////////////////////////////////
+//THIS IS AN EXAMPLE OF USING JS WITHIN THE HTML TO CALCULATE AGE
+{
+	/* <h3>You are {2022 - 1973} years old today.</h3> */
+}
