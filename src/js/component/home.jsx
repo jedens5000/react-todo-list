@@ -2,8 +2,10 @@ import React from "react";
 import { useState } from "react";
 import Header from "./Header";
 import Tasks from "./Tasks";
+import AddTask from "./AddTask";
 
 const Home = () => {
+	//THIS WILL STORAGE THE TASKS (Sample Task List Current)
 	const [tasks, setTasks] = useState([
 		{
 			id: 1,
@@ -25,17 +27,40 @@ const Home = () => {
 		},
 	]);
 
+	//Add Task function
+	const addTask = (task) => {
+		const id = Math.floor(Math.random() * 10000) + 1;
+		const newTask = { id, ...task };
+		setTasks([...tasks, newTask]);
+	};
+
 	//Delete Task
 	const deleteTask = (id) => {
 		setTasks(tasks.filter((task) => task.id !== id));
 	};
 
+	//Toggle Reminder
+	const toggleReminder = (id) => {
+		setTasks(
+			tasks.map((task) =>
+				task.id === id ? { ...task, reminder: !task.reminder } : task
+			)
+		);
+		// console.log(id);
+	};
+
 	return (
+		//Frontend Display
 		<div className="container">
 			{/* <h1>Test Home.jsx</h1> */}
 			<Header />
+			<AddTask onAdd={addTask} />
 			{tasks.length > 0 ? (
-				<Tasks tasks={tasks} onDelete={deleteTask} />
+				<Tasks
+					tasks={tasks}
+					onDelete={deleteTask}
+					onToggle={toggleReminder}
+				/>
 			) : (
 				"No Tasks Available"
 			)}
@@ -44,9 +69,3 @@ const Home = () => {
 };
 
 export default Home;
-
-//ADD TO NOTES/////////////////////////////////////////
-//THIS IS AN EXAMPLE OF USING JS WITHIN THE HTML TO CALCULATE AGE
-{
-	/* <h3>You are {2022 - 1973} years old today.</h3> */
-}

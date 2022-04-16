@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 
+// Header consists of "title" Task Tracker and Add button, imported from Button.js
 const Header = ({ title }) => {
+	// This is pending Button functionality
 	const onClick = () => {
 		console.log("Click");
 	};
@@ -23,15 +25,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-//ADD TO NOTES:////////////////////////////////////////////////////////
-// This is an example of how to create styles within React that are not inline
-{
-	/* <header>
-	<h1 style={headingStyle}>{title}</h1>
-</header> */
-}
-// const headingStyle = {
-// 	color: "red",
-// 	backgroundColor: "black",
-// };
