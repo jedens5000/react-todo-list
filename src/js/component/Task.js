@@ -1,6 +1,8 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
+import { format, formatDistance, formatRelative, subDays } from "date-fns";
 
+// This controls each task independently
 const Task = ({ task, onDelete, onToggle }) => {
 	return (
 		<div
@@ -13,7 +15,7 @@ const Task = ({ task, onDelete, onToggle }) => {
 					onClick={() => onDelete(task.id)}
 				/>
 			</h3>
-			<p>{task.day}</p>
+			<p>{format(new Date({task.day}),PPPPpppp)}</p>
 			{/* <p>{task.id}</p> */}
 		</div>
 	);

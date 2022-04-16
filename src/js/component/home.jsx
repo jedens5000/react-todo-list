@@ -5,7 +5,7 @@ import Tasks from "./Tasks";
 import AddTask from "./AddTask";
 
 const Home = () => {
-	//THIS WILL STORAGE THE TASKS (Sample Task List Current)
+	//THIS WILL STORE THE TASKS (Sample Task List Current)
 	const [tasks, setTasks] = useState([
 		{
 			id: 1,
@@ -46,13 +46,11 @@ const Home = () => {
 				task.id === id ? { ...task, reminder: !task.reminder } : task
 			)
 		);
-		// console.log(id);
 	};
 
 	return (
 		//Frontend Display
 		<div className="container">
-			{/* <h1>Test Home.jsx</h1> */}
 			<Header />
 			<AddTask onAdd={addTask} />
 			{tasks.length > 0 ? (
